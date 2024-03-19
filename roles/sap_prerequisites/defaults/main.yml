@@ -1,0 +1,131 @@
+---
+# defaults file for sap_prerequisites
+
+packages_app:
+  - uuidd  
+  - pmisc 
+  - tcsh 
+  - nfs-utils 
+  - gtk2  
+  - libatomic 
+  - libcanberra-gtk2 
+  - libssh2  
+  - libtool-ltdl 
+  - PackageKit-gtk3-module 
+  - xorg-x11-xauth 
+  - tuned-profiles-sap 
+  - graphviz 
+  - iptraf-ng 
+  - telnet 
+
+packages_bdd:
+  - expect
+  - gtk2
+  - krb5-workstation
+  - uuidd
+  - libatomic
+  - libnsl
+  - tcsh
+  - psmisc
+  - nfs-utils
+  - bind-utils
+  - libcanberra-gtk2
+  - libssh2
+  - numactl
+  - PackageKit-gtk3-module
+  - libtool-ltdl
+  - xorg-x11-xauth
+  - compat-openssl11
+  - compat-sap-c++-9
+  - compat-sap-c++-10
+  - compat-sap-c++-11
+  - tuned-profiles-sap-hana
+  - telnet
+  - mailx
+  - graphviz
+  - iptraf-ng
+  - lm_sensors
+  - chkconfig
+
+#users_bdd:
+sap_groups:
+  - sap_grp_name: sapsys
+    sap_grp_gid: 1011
+  - sap_grp_name: sapinst
+    sap_grp_gid: 1500
+    
+
+sap_users_app:
+  - usr_name: "qo1adm"
+    usr_uid: 212
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/qo1adm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "sapadm"
+    usr_uid: 214
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/sapadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "daaadm"
+    usr_uid: 216
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/daaadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "da1adm"
+    usr_uid: 217
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/da1adm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "qowadm"
+    usr_uid: 213
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/qowadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+
+sap_users_bdd:
+  - usr_name: "qo1adm"
+    usr_uid: 212
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/qo1adm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "sapadm"
+    usr_uid: 214
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/sapadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "daaadm"
+    usr_uid: 216
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/daaadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "da1adm"
+    usr_uid: 217
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/da1adm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+  - usr_name: "h4cadm"
+    usr_uid: 215
+    usr_group: "sapsys"
+    usr_groups: "sapinst"
+    usr_home: "/home/h4cadm"
+    usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
+    usr_umask: "022"
+

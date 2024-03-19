@@ -1,0 +1,10 @@
+---
+# tasks file for sap_prerequisites
+
+- name: Install software packages
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{  packages_app if var_env == 'app' else packages_bdd}}"
+  ignore_errors: yes
+

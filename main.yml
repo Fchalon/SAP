@@ -1,0 +1,7 @@
+---
+- hosts: vms
+  vars:
+    var_env: "bdd"
+
+  roles:
+    - sap_prerequisites

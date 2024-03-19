@@ -1,0 +1,19 @@
+---
+- name: Create groupes
+  ansible.builtin.group:
+    name: "{{ item.sap_grp_name }}"
+    state: present
+    gid: "{{ item.sap_grp_gid }}" 
+  loop: "{{sap_groups }}"
+
+- name: Create Users
+  ansible.builtin.user:
+    name: "{{ item.usr_name }}"
+    uid: "{{ item.usr_uid }}"
+    group: "{{ item.usr_group }}"
+    append: true
+    groups: "{{ item.usr_groups }}"
+    home: "{{ item.usr_home }}"
+    comment: "{{ item.usr_gecos }}"
+    umask: "{{ item.usr_umask }}"
+  loop: "{{ sap_users_app if var_env == 'app' else sap_users_bdd }}"
