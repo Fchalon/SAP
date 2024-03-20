@@ -2,6 +2,13 @@
 - hosts: vms
   vars:
     var_env: "bdd"
-
+    sap8general8preconfigure_enable8repos: true
+    sap_general_preconfigure_req_repos:
+      - rhel-9-for-x86_64-sap-solutions-rpms
+      - rhel-9-for-x86_64-appstream-rpms
+      - rhel-9-for-x86_64-baseos-rpms
+  collections:
+    - community.sap_install
   roles:
     - sap_prerequisites
+#    - sap_hana_preconfigure

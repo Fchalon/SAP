@@ -1,6 +1,10 @@
 ---
 # tasks file for sap_prerequisites
 
+#- name: Enable rhel-8-for-x86_64-sap-solutions-rpms
+#  community.general.rhsm_repository:
+#    name: rhel-8-for-x86_64-sap-solutions-rpms
+
 - name: Install software packages
   ansible.builtin.include_tasks: sap_install_packages.yml
 
@@ -20,7 +24,7 @@
         state: started
     - name: Active profile sap-hana
       ansible.builtin.shell: "tuned-adm profile sap-hana; tuned-adm active"
-      changed_when: false
+
   rescue:
     - name: Something wrong when enable tuned
       ansible.builtin.debug:
@@ -43,7 +47,7 @@
   loop: 
     - kdump
     - numad
+  ignore_errors: true
 
-
-
-
+- name: Create VG
+  ansible.builtin.include_tasks: sap_create_vg_lv.yml

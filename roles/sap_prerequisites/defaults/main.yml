@@ -35,16 +35,13 @@ packages_bdd:
   - PackageKit-gtk3-module
   - libtool-ltdl
   - xorg-x11-xauth
-  - compat-openssl11
-  - compat-sap-c++-9
-  - compat-sap-c++-10
-  - compat-sap-c++-11
   - tuned-profiles-sap-hana
   - telnet
   - mailx
   - graphviz
   - iptraf-ng
   - lm_sensors
+  - compat-openssl11
   - chkconfig
 
 #users_bdd:
@@ -128,4 +125,10 @@ sap_users_bdd:
     usr_home: "/home/h4cadm"
     usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
     usr_umask: "022"
+
+volum_groups:
+  - vgname: "datavg"
+    pvname: 
+      - "/dev/sdc"
+      - "/dev/sdd"
 

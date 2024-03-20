@@ -1,0 +1,6 @@
+---
+- name: Create Volum Groups
+  lvg:
+    vg: "{{ item.vgname }}"
+    pvs: "{{ item.pvname }}"
+  loop: "{{ volum_groups }}"
