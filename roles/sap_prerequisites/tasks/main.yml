@@ -1,9 +1,9 @@
 ---
 # tasks file for sap_prerequisites
 
-#- name: Enable rhel-8-for-x86_64-sap-solutions-rpms
-#  community.general.rhsm_repository:
-#    name: rhel-8-for-x86_64-sap-solutions-rpms
+- name: Enable rhel-9-for-x86_64-sap-es4-solutions-rpms
+  community.general.rhsm_repository:
+    name: rhel-9-for-x86_64-sap-solutions-e4s-rpms
 
 - name: Install software packages
   ansible.builtin.include_tasks: sap_install_packages.yml

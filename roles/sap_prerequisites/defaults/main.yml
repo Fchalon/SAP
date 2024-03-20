@@ -9,7 +9,6 @@ packages_app:
   - gtk2  
   - libatomic 
   - libcanberra-gtk2 
-  - libssh2  
   - libtool-ltdl 
   - PackageKit-gtk3-module 
   - xorg-x11-xauth 
@@ -30,14 +29,12 @@ packages_bdd:
   - nfs-utils
   - bind-utils
   - libcanberra-gtk2
-  - libssh2
   - numactl
   - PackageKit-gtk3-module
   - libtool-ltdl
   - xorg-x11-xauth
   - tuned-profiles-sap-hana
   - telnet
-  - mailx
   - graphviz
   - iptraf-ng
   - lm_sensors
@@ -127,8 +124,19 @@ sap_users_bdd:
     usr_umask: "022"
 
 volum_groups:
-  - vgname: "datavg"
+  - vgname: "vghadata"
     pvname: 
       - "/dev/sdc"
+  - vgname: "vghalog"
+    pvname: 
+      - "/dev/sdb"
+#  - vgname: "vghashared"
+#    pvname: 
+#      - "/dev/sdc"
+  - vgname: "vghabackup"
+    pvname: 
       - "/dev/sdd"
-
+  - vgname: "vghasap"
+    pvname: 
+      - "/dev/sde"
+      - "/dev/sdf"
