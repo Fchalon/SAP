@@ -1,7 +1,7 @@
 ---
 - hosts: vms
   vars:
-    var_env: "app"
+    var_env: "bdd"
     sap8general8preconfigure_enable8repos: true
     sap_general_preconfigure_req_repos:
       - rhel-9-for-x86_64-sap-solutions-rpms

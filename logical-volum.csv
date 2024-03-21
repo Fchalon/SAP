@@ -1,3 +1,6 @@
-lvname; lvsize; fsname; vgname; fstype; ownermountpoint;groupowner
-lvusrsap;10G;/usr/sap;vghaSID1;xfs;root;sapsys
+lvname;lvsize;fsname;vgname;fstype;ownermountpoint;groupowner
+lvusrsap;1G;/usr/sap;vghaSID1;xfs;root;sapsys
+lvtrans;1G;/usr/sap/trans;vghaSID2;xfs;root;sapsys
+
+
 

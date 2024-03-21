@@ -1,4 +1,4 @@
 vgname;devices
-vghaSID1;/dev/sdb,/dev/sdc
+vghaSID1;/dev/sdb
 vghaSID2;/dev/sde,/dev/sdf
-vghaSID3;/dev/sdg
+vghaSID3;/dev/sdc

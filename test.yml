@@ -15,3 +15,18 @@
         msg: "vgcreate {{ item.vgname }} with disk {{ item.devices }}"
       loop: "{{ outpu_csv.list }}"
         
+    - name: parse csv file
+      community.general.read_csv:
+        path: logical-volum.csv
+        delimiter: ';'
+      register: outpu_lv_csv
+
+    - name: debug
+      debug:
+        var: outpu_lv_csv
+    - name: Affiche command
+      debug:
+        msg: "lvname {{ item.lvname }} on vg {{ item.vgname }} size {{ item.lvsize }}"
+      loop: "{{ outpu_lv_csv.list }}"
+
+
