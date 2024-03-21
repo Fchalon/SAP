@@ -73,6 +73,20 @@
   tags:
     - limits
 
+- name : Configure Number open files
+  community.general.pam_limits:
+    dest: /etc/security/limits.d/99-sap.conf
+    domain: "@{{ item }}"
+    limit_type: "-"
+    limit_item: "nofile"
+    value: "1048576" 
+  loop: 
+    - sapsys
+    - dba
+    - sdba
+  tags:
+    - limits
+
 - name: Exclude Some file from systemd.tmpfiles
   ansible.builtin.template:
     src: sap_tmpfs.j2

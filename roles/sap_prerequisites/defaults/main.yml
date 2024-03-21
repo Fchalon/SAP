@@ -124,21 +124,3 @@ sap_users_bdd:
     usr_home: "/home/h4cadm"
     usr_gecos: "706/S/*UX1SAP/Kyndryl/SAP system Administrator"
     usr_umask: "022"
-
-volum_groups:
-  - vgname: "vghadata"
-    pvname: 
-      - "/dev/sdc"
-  - vgname: "vghalog"
-    pvname: 
-      - "/dev/sdb"
-#  - vgname: "vghashared"
-#    pvname: 
-#      - "/dev/sdc"
-  - vgname: "vghabackup"
-    pvname: 
-      - "/dev/sdd"
-  - vgname: "vghasap"
-    pvname: 
-      - "/dev/sde"
-      - "/dev/sdf"
