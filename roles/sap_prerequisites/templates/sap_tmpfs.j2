@@ -1,0 +1,8 @@
+#systemd.tmpfile exclude file for SAP
+#SAP software stores some important files in /tmp which should not be deleted automaticly
+#Exclude SAP socket and lock files
+x /tmp/.sap*
+#Exclude HANA lock file
+x /tmp/.hdb*lock
+#Excude TREX lock file
+x /tmp/.trex*lock

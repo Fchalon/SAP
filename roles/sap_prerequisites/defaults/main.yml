@@ -3,7 +3,7 @@
 
 packages_app:
   - uuidd  
-  - pmisc 
+  - psmisc 
   - tcsh 
   - nfs-utils 
   - gtk2  
@@ -16,6 +16,8 @@ packages_app:
   - graphviz 
   - iptraf-ng 
   - telnet 
+  - xclock
+  - vnc
 
 packages_bdd:
   - expect

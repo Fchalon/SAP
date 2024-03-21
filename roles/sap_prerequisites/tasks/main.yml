@@ -49,5 +49,31 @@
     - numad
   ignore_errors: true
 
+
+
 - name: Create VG
   ansible.builtin.include_tasks: sap_create_vg_lv.yml
+
+- name : Disable Transparent HugePages
+  ansible.builtin.shell: ' echo never > /sys/kernel/mm/transparent_hugepage/enabled; grubby --update=ALL --args="transparent_hugepage=never"'
+  #when: var_env == "bdd"
+
+- name : Configure Limits
+  community.general.pam_limits:
+    dest: /etc/security/limits.d/99-sap.conf
+    domain: "@sapsys"
+    limit_type: "{{ item }}"
+    limit_item: "nproc"
+    value: "unlimited"
+  loop:
+    - hard
+    - soft
+  tags:
+    - limits
+
+- name: Exclude Some file from systemd.tmpfiles
+  ansible.builtin.template:
+    src: sap_tmpfs.j2
+    dest: /etc/tmpfiles.d/sap.conf
+  tags:
+    - exclude_tmpfiles

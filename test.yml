@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+    - name: parse csv file
+      community.general.read_csv:
+        path: volum-group.csv
+        delimiter: ';'
+      register: outpu_csv
+
+    - name: debug
+      debug:
+        var: outpu_csv
+    - name: Affiche command
+      debug:
+        msg: "vgcreate {{ item.vgname }} with disk {{ item.devices }}"
+      loop: "{{ outpu_csv.list }}"
+        

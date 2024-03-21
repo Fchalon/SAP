@@ -1,0 +1,3 @@
+lvname; lvsize; fsname; vgname; fstype; ownermountpoint;groupowner
+lvusrsap;10G;/usr/sap;vghaSID1;xfs;root;sapsys
+
