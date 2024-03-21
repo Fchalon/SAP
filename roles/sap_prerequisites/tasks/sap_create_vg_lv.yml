@@ -1,22 +1,23 @@
 ---
 
-- name: Parse VG csv file
-  community.general.read_csv:
-    path: "/tmp/volum-group.csv"
-    delimiter: ';'
-  register: output_csv
+#- name: Parse VG csv file
+#  community.general.read_csv:
+#    path: "/tmp/volum-group.csv"
+#    delimiter: ';'
+#  register: output_csv
 
 - name: Create Volum Groups
   lvg:
     vg: "{{ item.vgname }}"
     pvs: "{{ item.devices }}"
-  loop: "{{ output_csv.list }}"
+  loop: "{{ ansible_local.lvm_config.volum_groups }}"
+  #loop: "{{ output_csv.list }}"
 
-- name: Parse Logical csv file
-  community.general.read_csv:
-    path: "/tmp/logical-volum.csv"
-    delimiter: ';'
-  register: outpu_lv_csv
+#- name: Parse Logical csv file
+#  community.general.read_csv:
+#    path: "/tmp/logical-volum.csv"
+#    delimiter: ';'
+#  register: outpu_lv_csv
 
 - name: Create Logical volum
   community.general.lvol:
@@ -24,13 +25,15 @@
     lv: "{{ item.lvname }}"
     size: "{{ item.lvsize }}"
     active: true
-  loop: "{{ outpu_lv_csv.list }}"
+  loop: "{{ ansible_local.lvm_config.logical_volums }}"
+#  loop: "{{ outpu_lv_csv.list }}"
 
 - name: Create Filesystms
   community.general.filesystem:
     fstype: xfs
     dev: "/dev/{{ item.vgname }}/{{ item.lvname }}"
-  loop: "{{ outpu_lv_csv.list }}"
+  loop: "{{ ansible_local.lvm_config.logical_volums }}"
+#  loop: "{{ outpu_lv_csv.list }}"
 
 - name: Mount Filesystems
   ansible.posix.mount:
@@ -38,7 +41,8 @@
     src: "/dev/{{ item.vgname }}/{{ item.lvname }}"
     fstype: xfs
     state: mounted
-  loop: "{{ outpu_lv_csv.list }}"
+  loop: "{{ ansible_local.lvm_config.logical_volums }}"
+#  loop: "{{ outpu_lv_csv.list }}"
 
 - name: Set permission on mount point
   ansible.builtin.file:
@@ -46,4 +50,5 @@
     mode: '0775'
     owner: "{{ item.ownermountpoint }}"
     group: "{{ item.groupowner }}"
-  loop: "{{ outpu_lv_csv.list }}"
+  loop: "{{ ansible_local.lvm_config.logical_volums }}"
+#  loop: "{{ outpu_lv_csv.list }}"

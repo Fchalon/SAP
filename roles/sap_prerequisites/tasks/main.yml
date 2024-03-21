@@ -53,6 +53,8 @@
 
 - name: Create VG
   ansible.builtin.include_tasks: sap_create_vg_lv.yml
+  tags:
+    - createvg
 
 - name : Disable Transparent HugePages
   ansible.builtin.shell: ' echo never > /sys/kernel/mm/transparent_hugepage/enabled; grubby --update=ALL --args="transparent_hugepage=never"'
