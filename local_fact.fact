@@ -1,0 +1,42 @@
+{
+    "logical_volums": [
+            {
+                "fsname": "/usr/sap",
+                "fstype": "xfs",
+                "groupowner": "sapsys",
+                "lvname": "lvusrsap",
+                "lvsize": "1G",
+                "ownermountpoint": "root",
+                "vgname": "vghaSID1"
+            },
+            {
+                "fsname": "/usr/sap/trans",
+                "fstype": "xfs",
+                "groupowner": "sapsys",
+                "lvname": "lvtrans",
+                "lvsize": "1G",
+                "ownermountpoint": "root",
+                "vgname": "vghaSID2"
+            }
+        ],
+    "volum_groups": [
+            {
+               "vgname": "vghaSID1",
+               "devices": "/dev/sdb"
+            },
+            {
+               "vgname": "vghaSID2",
+               "devices": "/dev/sdc"
+            },
+            {
+               "vgname": "vghaSID3",
+               "devices": "/dev/sde, /dev/sdd"
+            },
+            {
+               "vgname": "vghaSID4",
+               "devices": "/dev/sdf"
+            }
+    ]
+
+}
+

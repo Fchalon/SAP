@@ -1,32 +1,17 @@
 ---
-- hosts: localhost
+- hosts: vms
   tasks:
-    - name: parse csv file
-      community.general.read_csv:
-        path: volum-group.csv
-        delimiter: ';'
-      register: outpu_csv
-
-    - name: debug
-      debug:
-        var: outpu_csv
     - name: Affiche command
       debug:
         msg: "vgcreate {{ item.vgname }} with disk {{ item.devices }}"
-      loop: "{{ outpu_csv.list }}"
+      loop: "{{ ansible_local.lvm_config.volum_groups }}"
         
-    - name: parse csv file
-      community.general.read_csv:
-        path: logical-volum.csv
-        delimiter: ';'
-      register: outpu_lv_csv
-
-    - name: debug
-      debug:
-        var: outpu_lv_csv
     - name: Affiche command
       debug:
         msg: "lvname {{ item.lvname }} on vg {{ item.vgname }} size {{ item.lvsize }}"
-      loop: "{{ outpu_lv_csv.list }}"
+      loop: "{{  ansible_local.lvm_config.logical_volums}}"
+   # - name: debug
+   #   debug:
+   #     var:  ansible_local
 
 
