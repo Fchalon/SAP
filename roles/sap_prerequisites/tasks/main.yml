@@ -79,3 +79,8 @@
     dest: /etc/tmpfiles.d/sap.conf
   tags:
     - exclude_tmpfiles
+
+- name: Configure SELinux to permissive
+  ansible.builtin.include_tasks: sap_selinux.yml
+  tags:
+    - selinux
