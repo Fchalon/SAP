@@ -30,7 +30,7 @@
             },
             {
                "vgname": "vghaSID3",
-               "devices": "/dev/sde, /dev/sdd"
+               "devices": "/dev/sde,/dev/sdd"
             },
             {
                "vgname": "vghaSID4",
